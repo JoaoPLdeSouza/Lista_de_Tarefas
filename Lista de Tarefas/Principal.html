@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="Principal.css">
 </head>
 <body>
+    <header>
+        <nav>
+
+
+        </nav>
+    </header>
+
     <section>
         <nav class="menu-lateral">
             <div class="btn-expandir">
@@ -25,14 +32,14 @@
                 <li class="item-menu">
                     <a href="#">
                         <span class="icone"><i class="bi bi-plus-square-fill"></i></span>
-                        <span class="txt-link">Criar</span>
+                        <span class="txt-link">Criar Tarefa</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
                     <a href="#">
-                        <span class="icone"><i class="bi bi-envelope-plus-fill"></i></span>
-                        <span class="txt-link">Comentario</span>
+                        <span class="icone"><i class="bi bi-chat-left-dots"></i></span>
+                        <span class="txt-link">Adicionar Comentario</span>
                     </a>
                 </li>
 
@@ -43,11 +50,13 @@
                     </a>
                 </li>
 
-                <li class="item-menu">
+                <li class="item-menu filtro">
                     <a href="#">
                         <span class="icone"><i class="bi bi-filter-square-fill"></i></span>
                         <span class="txt-link">Filtros</span>
                     </a>
+                    
+                    <form style="color: white;"><select> </select></form>
                 </li>
 
                 <li class="item-menu">
@@ -58,7 +67,7 @@
                 </li>
             </ul>
         </nav>
-        <script src="menu.js"></script>
+        <script src="menuLateral.js"></script>
     </section>
 
     <main>
@@ -69,6 +78,7 @@
                 <th>Status</th>
                 <th>Comentarios</th>
                 <th>Prazo</th>
+                <th>Check</th>
             </tr>
 
             <!-- Acrescenta mais um para cada um criado -->
@@ -76,16 +86,18 @@
                 <td>Dados do BD</td>
                 <td>Dados do BD</td>
                 <td>Dados do BD</td>
-                <td><a href="#">Imagem</a></td>
+                <td><a href="#"><i class="bi bi-chat-left"></i></a></td>
                 <td>Dados do BD</td>
+                <td> <form> <input type="checkbox"> </form> </td>
             </tr>
 
             <tr>
                 <td>Dados do BD</td>
                 <td>Dados do BD</td>
                 <td>Dados do BD</td>
-                <td><a href="#">Imagem</a></td>
+                <td><a href="#"><i class="bi bi-chat-left"></i></a></td>
                 <td>Dados do BD</td>
+                <td> <form> <input type="checkbox"> </form> </td>
             </tr>
         </table>
     </main>
