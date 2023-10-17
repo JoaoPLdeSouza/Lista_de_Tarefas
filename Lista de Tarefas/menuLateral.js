@@ -18,12 +18,16 @@ menuItem.forEach((item)=>
 //Expandir o menu
 var btnExp = document.querySelector('#btn-exp')
 var sideMenu = document.querySelector('.menu-lateral')
+var aparecer = document.querySelectorAll('.txt-link')
 
 //Cria e adiciona a classe expandir pelo click
 btnExp.addEventListener('click', function(){
     //toggle = se existir tira senao cria
     sideMenu.classList.toggle('expandir')
+
+    aparecer.forEach((sa)=>
+        sa.classList.toggle('aparecer')
+    )
 })
 
-var filtro = document.querySelector('.filro')
 

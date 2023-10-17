@@ -18,7 +18,7 @@ nav.menu-lateral{
     top: 0;
     left: 0;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.3s;
     z-index: 1;
 }
 
@@ -66,8 +66,13 @@ ul li.item-menu a{
     line-height: 40px;
 }
 
-ul li.item-menu a .txt-link{
+ul li.item-menu a span.txt-link{
+    display: none;
+}
+
+ul li.item-menu a span.txt-link.aparecer{
     margin-left: 20px;
+    display: inline;
 }
 
 ul li.item-menu a i{
@@ -89,6 +94,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 table{
@@ -102,5 +108,5 @@ table{
 table th, table td{
     padding: 10px 10px;
     border: black solid 1px;
-    font-size: 20px;
+    font-size: 50px;
 }
