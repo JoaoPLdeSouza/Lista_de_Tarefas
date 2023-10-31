@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    background: linear-gradient(45deg, #111, #555);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .blur-bg {
+    background: linear-gradient(45deg, #111, #555); /* Fundo desfocado com variação de cinza e preto */
+    filter: blur(10px); /* Aplicando o efeito de desfoque */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Colocando a camada de fundo desfocado atrás do conteúdo */
+  }
+  
+  .login-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .login-form {
+    text-align: left;
+  }
+  
+  h2 {
+    color: white; /* Cor do texto */
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #ffffff;
+    color: black;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #aaa8a8;
+  }
+  
+  .icon {
+    display: inline-block;
+    margin-right: 10px;
+    color: white;
+    font-size: 40px;
+  }
+  
+  .top-circle {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px; /* Ajuste o tamanho conforme necessário */
+    background-color: rgba(255, 255, 255); /* Fundo branco semi-transparente */
+    border-radius: 50%;
+    position: absolute;
+    top: -50px; /* Metade do tamanho para que metade do círculo fique fora do formulário */
+    left: 50%; /* Centralizando horizontalmente */
+    transform: translateX(-50%); /* Centralizando horizontalmente */
+    z-index: 1; /* Colocando o círculo sobre o fundo desfocado */
+    font-size: 80px;
+  }
+  
+  .login-container {
+    position: relative; /* Adicionando posição relativa ao contêiner do formulário */
+  }
+
+
