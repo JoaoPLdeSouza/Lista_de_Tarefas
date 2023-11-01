@@ -17,9 +17,14 @@ $senha = $_POST['senha'];
         .href='Login.html';</script>";
         die();
       }else{
-        //$pdo -> prepare("SELECT id_usuarios FROM usuarios WHERE nome = '$login' AND senha = '$senha' ");
-        //$_SESSION['id'] = $busid;
-        $_SESSION['nome'] = $login;
+        $sql = $pdo -> prepare("SELECT id_usuarios FROM usuarios WHERE nome = '$login' AND senha = '$senha' ");
+        $sql -> execute();
+        if ($sql->rowCount()>0){
+            $id = $sql->fetch();
+            $_SESSION['id'] = $id['id_usuarios'];
+            $_SESSION['nome'] = $login;
+        }
+        
         header("Location:Lista.php");
       }
   }
