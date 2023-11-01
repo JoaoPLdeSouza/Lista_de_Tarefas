@@ -1,25 +1,18 @@
 <?php
 
+
     include 'conexao.php';
+    
+    session_start();
 
     # TRECHO QUE REALIZA A CONSULTA DE TODOS 
     # OS REGISTROS DO BANCO DE DADOS E MONTA 
     # A LISTAGEM
+
     $sql = " SELECT * FROM tarefas ";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $dados = $statement->fetchAll(PDO::FETCH_OBJ);
-
-    # TRECHO DE EDIÇÃO
-    $dadosEdit = null;
-    if(isset($_REQUEST['id'])) {
-        $id = $_REQUEST['id'];
-        $sqlEdit = " SELECT * FROM tarefas WHERE id = :id ";
-        $statementEdit = $pdo->prepare($sqlEdit);
-        $statementEdit->bindParam(":id", $id);
-        $statementEdit->execute();
-        $dadosEdit = $statementEdit->fetch(PDO::FETCH_OBJ);
-    }
 
 ?>
 
@@ -35,7 +28,7 @@
 <body>
     <header>
         <nav class="topo">
-            <h3>Nome Usuario</h3>
+            <h3><?php print $_SESSION['nome'] ?></h3>
             <i class="bi bi-person-circle"></i>
         </nav>
     </header>
@@ -69,7 +62,7 @@
                 </li>
 
                 <li class="item-menu">
-                    <a href="#">
+                    <a href="Logout.php">
                         <span class="icone"><i class="bi bi-box-arrow-left"></i></span>
                         <span class="txt-link">Sair</span>
                     </a>
