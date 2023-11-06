@@ -24,7 +24,6 @@ $senha = $_POST['senha'];
             $_SESSION['id'] = $id['id_usuarios'];
             $_SESSION['nome'] = $login;
         }
-        
         header("Location:Lista.php");
       }
   }

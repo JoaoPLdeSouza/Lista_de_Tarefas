@@ -1,19 +1,67 @@
 <?php
 
 
-    include 'conexao.php';
+  include 'conexao.php';
     
-    session_start();
+  session_start();
 
-    # TRECHO QUE REALIZA A CONSULTA DE TODOS 
-    # OS REGISTROS DO BANCO DE DADOS E MONTA 
-    # A LISTAGEM
+  # TRECHO QUE REALIZA A CONSULTA DE TODOS 
+  # OS REGISTROS DO BANCO DE DADOS E MONTA 
+  # A LISTAGEM
 
-    $sql = " SELECT * FROM tarefas ";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $dados = $statement->fetchAll(PDO::FETCH_OBJ);
+  $id = $_SESSION['id'];
 
+  $alt1 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 1 AND prioridade = 'Alta'");
+  $alt1 ->execute();
+  $infA1 = $alt1->fetchAll(PDO::FETCH_OBJ);
+
+  $alt2 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 2 AND prioridade = 'Alta'");
+  $alt2 ->execute();
+  $infA2 = $alt2->fetchAll(PDO::FETCH_OBJ);
+
+  $alt3 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 3 AND prioridade = 'Alta'");
+  $alt3 ->execute();
+  $infA3 = $alt3->fetchAll(PDO::FETCH_OBJ);
+
+  $med1 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 1 AND prioridade = 'Media'");
+  $med1 ->execute();
+  $infM1 = $med1->fetchAll(PDO::FETCH_OBJ);
+
+  $med2 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 2 AND prioridade = 'Media'");
+  $med2 ->execute();
+  $infM2 = $med2->fetchAll(PDO::FETCH_OBJ);
+  
+  $med3 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 3 AND prioridade = 'Media'");
+  $med3 ->execute();
+  $infM3 = $med3->fetchAll(PDO::FETCH_OBJ);
+
+  $baix1 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 1 AND prioridade = 'Baixa'");
+  $baix1 ->execute();
+  $infB1 = $baix1->fetchAll(PDO::FETCH_OBJ);
+
+  $baix2 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 2 AND prioridade = 'Baixa'");
+  $baix2 ->execute();
+  $infB2 = $baix2->fetchAll(PDO::FETCH_OBJ);
+
+  $baix3 = $pdo -> prepare(" SELECT * FROM tarefas WHERE cod_usuarios = '$id' AND cod_status = 3 AND prioridade = 'Baixa'");
+  $baix3 ->execute();
+  $infB3 = $baix3->fetchAll(PDO::FETCH_OBJ);
+
+  $idUPD = null;
+  $nt = null;
+  $st = null;
+  $pr = null;
+  $dt = null;
+
+  if (!empty($_GET['id'])){
+      $idUPD = $_GET['id'];
+      $src = $pdo -> query("SELECT * FROM tarefas WHERE id_tarefas = '$idUPD'");
+      $dados = $src -> fetch(PDO::FETCH_OBJ);
+      $nt = $dados -> nome_tarefa;
+      $st = $dados -> cod_status;
+      $pr = $dados -> prioridade;
+      $dt = new \DateTime($dados -> prazo, new \DateTimeZone('America/Sao_Paulo'));
+  }
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +76,27 @@
 <body>
     <header>
         <nav class="topo">
-            <h3><?php print $_SESSION['nome'] ?></h3>
-            <i class="bi bi-person-circle"></i>
-        </nav>
+          <div class="inserir">
+            <form method="POST" action='inserir.php'>
+                <label>Tarefa: <input type="text" name='tarefa' value ="<?php echo $nt?>" require></label>
+                <label>Status: <select name="status" require></label>
+                    <option value="1" <?php echo ($st = 1)?'selected':' '?>>Iniciada</option>
+                    <option value="2" <?php echo ($st = 2)?'selected':' '?>>Em andamento</option>
+                    <option value="3" <?php echo ($st = 3)?'selected':' '?>>Finalizada</option>
+                </select>
+                <label>Prioridade: <select name="prioridade" require></label>
+                    <option value="Baixa"<?php echo ($pr = 'Baixa')?'selected':' '?>>Baixa</option>
+                    <option value="Media"<?php echo ($pr = 'Media')?'selected':' '?>>Media</option>
+                    <option value="Alta"<?php echo ($pr = 'Alta')?'selected':' '?>>Alta</option>
+                </select>
+                <label>Prazo: <input type="date" name="prazo" value ="<?php echo ($dt == null)? '':$dt -> format("Y-m-d")?>" require></label>
+                <?php echo ($idUPD == null)?'<input class="add" type="submit" value="Criar Tarefa">':'<input class="add" type="submit" value="Editar">'?>
+            </form>
+          </div>
+
+          <h3><?php print $_SESSION['nome'] ?></h3>
+          <i class="bi bi-person-circle"></i>
+        </nav>  
     </header>
 
     <section>
@@ -44,13 +110,6 @@
                     <a href="#">
                         <span class="icone"><i class="bi bi-list-task"></i></span>
                         <span class="txt-link">Lista</span>
-                    </a>
-                </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="icone"><i class="bi bi-plus-square-fill"></i></span>
-                        <span class="txt-link">Nova Tarefa</span>
                     </a>
                 </li>
 
@@ -72,38 +131,87 @@
         <script src="menuLateral.js"></script>
     </section>
 
-    <main>
-        <table>
-            <tr>
-                <th>Tarefas</th>
-                <th>Status</th>
-                <th>Prioridade</th>
-                <th>Prazo</th>
-                <th>Ações</th>
-            </tr>
+    <main class="container">
+    <div class="section-container">
+      <div class="section">
+        <div class="titleS">AGUARDANDO</div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa Principal</div> 
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infA1 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa secundária</div>
+          </div>
+        </div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa Terciaria</div>
+            
+          </div>
+        </div>
+      </div>
+    
+      <div class="section">
+        <div class="titleS">INICIADA</div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa Principal</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infA2 as $linha) {?>
+                  <li class="post-it-item"><?php echo $linha->nome_tarefa?> | <?php echo $linha->prazo?><a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa secundária</div>
+          </div>
+        </div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa Terciaria</div>
+          </div>
+        </div>
+      </div>
 
-            <!-- Acrescenta mais um para cada um criado -->
-            <tr>
-                <td>Dados do BD</td>
-                <td>Dados do BD</td>
-                <td>Dados do BD</td>
-                <td>Dados do BD</td>
-                <td><a href="#"><i class="bi bi-pen-fill"></i></a> <a href="#"><i class="bi bi-dash-square-fill"></i></a> </td>
-            </tr>
-
-            <?php foreach($dados as $linha) { ?>
-            <tr>
-                <td><?php echo $linha->nome_tarefa ?></td>
-                <td><?php echo $linha->status ?></td>
-                <td><?php echo $linha->prioridade ?></td>
-                <td><?php echo $linha->prazo ?></td>
-                <td>
-                    <a href="index.php?id=<?php echo $linha->id ?>"><i class="bi bi-pen-fill"></i></a> | 
-                    <a href="excluir.php?id=<?php echo $linha->id ?>"><i class="bi bi-dash-square-fill"></i></a>
-                </td>
-            </tr>
-        <?php } ?>
-        </table>
+      <div class="section">
+        <div class="titleS">FINALIZANDO</div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa Principal</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infA3 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?><a href="#"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa secundária</div>
+          </div>
+        </div>
+        <div class="square-container">
+          <div class="square">
+            <div class="titleQ">Tarefa Terciaria</div>
+          </div>
+        </div>
+      </div>
+    </div>
     </main>
 
     <footer>

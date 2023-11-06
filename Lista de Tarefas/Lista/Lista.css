@@ -7,7 +7,7 @@
 }
 
 body{
-    height: 100hv;
+    background: linear-gradient(45deg, #ABD2FA, #3D518C);
 }
 
 
@@ -16,9 +16,9 @@ body{
 nav.menu-lateral{
     width: 70px;
     height: 100%;
-    background-color: black;
+    background-color: #091540;
     padding: 30px 0 50px 1%;
-    border-right: solid rgb(50, 155, 120) 4px;
+    border-right: solid #7692FF 4px;
     position: fixed;
     top: 0;
     left: 0;
@@ -55,11 +55,11 @@ ul li.item-menu{
 }
 
 ul li.ativo{
-    background-color: rgb(50, 155, 120);
+    background-color: #7692FF;
 }
 
 ul li.item-menu:hover{
-    background-color: rgb(50, 155, 120);
+    background-color: #7692FF;
 }
 
 ul li.item-menu a{
@@ -89,10 +89,11 @@ ul li.item-menu a i{
 
 header{
     width: 100%;
-    height: 100px;
-    background-color: black;
-    border-bottom: solid 4px rgb(50, 155, 120);
+    height: 70px;
+    background-color: #091540;
+    border-bottom: solid 4px #7692FF;
     position: fixed;
+    z-index: 1;
 }
 
 .topo {
@@ -100,48 +101,139 @@ header{
     justify-content: flex-end;
     color: white;
     font-size: 25px;
-    padding: 30px 20px 0px 20px;
+    padding: 10px 20px 0px 20px;
 }
 
 .topo > i{
     font-size: 40px;
     margin-left: 15px;
 }
+
+.topo h3{
+    padding-left: 16%;
+}
+
+.inserir{
+    display: flex;
+    color: white;
+    justify-content: center;
+    margin-left: 70px;
+}
+
+.inserir label{
+    padding-left: 15px;
+}
+
+.inserir button{
+    margin-left: 10px;
+}
+
+
 /* Lista */
 
-main{
-    height: 930px;
-    width: 100%;
-    text-align: center;
+.container{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    min-height: 100vh; /* Considerando o espaço do header e footer */
 }
 
-table{
-    padding: 10px 5px;
-    border-color: black;
-    border-style: double;
+.section {
+    text-align: center;
+    width: 300px;
+    margin-bottom: 40px;
+    margin-top: 80px;
+    padding-left: 80px;
+    margin-right: 60px;
+}
+
+.section-container {
+    display: flex;
+    margin-bottom: 40px; /* Adicionando um grande espaçamento entre as seções */
+}
+
+.table {
     border-collapse: collapse;
-    border-width: 6px;
+    margin-right: 20px;
 }
 
-table th, table td{
-    padding: 10px 10px;
-    border: black solid 1px;
-    font-size: 50px;
+.square-container {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.square {
+    min-width: 300px;
+    min-height: 200px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #182ce2, #2654aa);
+    box-shadow: 0px 4px 8px 3.5px rgba(23, 26, 194, 0.671);
+    position: relative;
+    padding: 10px; /* Adicionando espaçamento interno */
+    overflow-y: auto; /* Adicionando scroll vertical apenas */
+    overflow-x: hidden; /* Escondendo o scroll horizontal */
+}
+
+.titleS {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+    left: 30px;
+    position: relative;
+    display: inline-block; /* Garantindo que o fundo verde não se estenda além do texto */
+    padding: 5px; /* Adicionando um pequeno espaçamento entre o texto e o fundo verde */
+    border-radius: 5px; /* Adicionando bordas arredondadas */
+}
+
+.titleQ {
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    color: #9094C3;
+    display: inline-block; /* Garantindo que o fundo verde não se estenda além do texto */
+    padding: 5px; /* Adicionando um pequeno espaçamento entre o texto e o fundo verde */
+    border-radius: 5px; /* Adicionando bordas arredondadas */
+}
+
+.post-it { 
+    color: #ffffff;
+    border-radius: 5px;
+    position: relative;
+    bottom: 10px;
+    max-width: 100%;
+    padding: 5px; /* Adicionando espaçamento interno */
+    overflow: auto;
+}
+
+.post-it ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post-it li {
+    background-color: #1d9ac0bb;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    border-radius: 10px 0 0 10px;
+    margin-bottom: 5px;
 }
 
 
 /* Footer */
+
 footer  {
+    max-width: 100%;
+    max-height: 100%;
     width: 100%;
-    height: 100px;
-    background-color: black;
-    border-top: solid 4px rgb(50, 155, 120);
+    background-color: #091540;
+    border-top: solid 4px #7692FF;
     position: fixed;
     bottom: 0;
+    text-align: center;
 }
 
 footer  nav{
