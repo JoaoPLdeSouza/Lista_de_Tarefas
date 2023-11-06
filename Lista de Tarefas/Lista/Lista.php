@@ -75,8 +75,7 @@
     <link rel="stylesheet" href="Lista.css">
 </head>
 <body>
-    <header>
-        <nav class="topo">
+    <header class="topo"> 
           <div class="inserir">
             <form method="POST" <?php echo ($idUPD == null)?'action="inserir.php"':'action="update.php"'?>>
                 <label>Tarefa: <input type="text" name='tarefa' value ="<?php echo $nt?>" require></label>
@@ -96,8 +95,7 @@
           </div>
 
           <h3><?php print $_SESSION['nome'] ?></h3>
-          <i class="bi bi-person-circle"></i>
-        </nav>  
+          <i class="bi bi-person-circle"></i> 
     </header>
 
     <section>
@@ -151,12 +149,25 @@
         <div class="square-container">
           <div class="square">
             <div class="titleQ">Tarefa secundária</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infM1 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="square-container">
           <div class="square">
             <div class="titleQ">Tarefa Terciaria</div>
-            
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infB1 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -178,11 +189,25 @@
         <div class="square-container">
           <div class="square">
             <div class="titleQ">Tarefa secundária</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infM2 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="square-container">
           <div class="square">
             <div class="titleQ">Tarefa Terciaria</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infB2 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -195,7 +220,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA3 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?><a href="#"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php echo $linha->nome_tarefa?> | <?php echo $linha->prazo?><a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
             </ul>
             </div>
@@ -204,11 +229,25 @@
         <div class="square-container">
           <div class="square">
             <div class="titleQ">Tarefa secundária</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infM3 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="square-container">
           <div class="square">
             <div class="titleQ">Tarefa Terciaria</div>
+            <div class="post-it">
+              <ul class="post-it-list">
+                <?php foreach($infB3 as $linha) {?>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                <?php } ?>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

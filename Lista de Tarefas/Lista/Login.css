@@ -30,8 +30,9 @@ body {
     background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
     padding: 40px;
     border-radius: 10px;
-    max-width: 400px;
+    max-width: 300px;
     width: 100%;
+    margin-right: 200px;
   }
   
   .login-form {

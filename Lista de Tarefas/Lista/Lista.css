@@ -8,6 +8,7 @@
 
 body{
     background: linear-gradient(45deg, #ABD2FA, #3D518C);
+    background-size: cover;
 }
 
 
@@ -114,9 +115,7 @@ header{
 }
 
 .inserir{
-    display: flex;
     color: white;
-    justify-content: center;
     margin-left: 70px;
 }
 
@@ -124,7 +123,7 @@ header{
     padding-left: 15px;
 }
 
-.inserir button{
+.inserir input{
     margin-left: 10px;
 }
 
@@ -191,7 +190,7 @@ header{
     margin-bottom: 20px;
     position: relative;
     color: #9094C3;
-    display: inline-block; /* Garantindo que o fundo verde não se estenda além do texto */
+    display: inline-block; /* Garantindo que o fundo  não se estenda além do texto */
     padding: 5px; /* Adicionando um pequeno espaçamento entre o texto e o fundo verde */
     border-radius: 5px; /* Adicionando bordas arredondadas */
 }
