@@ -61,6 +61,7 @@
       $st = $dados -> cod_status;
       $pr = $dados -> prioridade;
       $dt = new \DateTime($dados -> prazo, new \DateTimeZone('America/Sao_Paulo'));
+      $_SESSION['idtar'] = $idUPD;
   }
 ?>
 
@@ -77,17 +78,17 @@
     <header>
         <nav class="topo">
           <div class="inserir">
-            <form method="POST" action='inserir.php'>
+            <form method="POST" <?php echo ($idUPD == null)?'action="inserir.php"':'action="update.php"'?>>
                 <label>Tarefa: <input type="text" name='tarefa' value ="<?php echo $nt?>" require></label>
                 <label>Status: <select name="status" require></label>
-                    <option value="1" <?php echo ($st = 1)?'selected':' '?>>Iniciada</option>
-                    <option value="2" <?php echo ($st = 2)?'selected':' '?>>Em andamento</option>
-                    <option value="3" <?php echo ($st = 3)?'selected':' '?>>Finalizada</option>
+                    <option value="1" <?php echo ($st == 1)?'selected':' '?>>Iniciada</option>
+                    <option value="2" <?php echo ($st == 2)?'selected':' '?>>Em andamento</option>
+                    <option value="3" <?php echo ($st == 3)?'selected':' '?>>Finalizada</option>
                 </select>
                 <label>Prioridade: <select name="prioridade" require></label>
-                    <option value="Baixa"<?php echo ($pr = 'Baixa')?'selected':' '?>>Baixa</option>
-                    <option value="Media"<?php echo ($pr = 'Media')?'selected':' '?>>Media</option>
-                    <option value="Alta"<?php echo ($pr = 'Alta')?'selected':' '?>>Alta</option>
+                    <option value="Baixa"<?php echo ($pr == 'Baixa')?'selected':' '?>>Baixa</option>
+                    <option value="Media"<?php echo ($pr == 'Media')?'selected':' '?>>Media</option>
+                    <option value="Alta"<?php echo ($pr == 'Alta')?'selected':' '?>>Alta</option>
                 </select>
                 <label>Prazo: <input type="date" name="prazo" value ="<?php echo ($dt == null)? '':$dt -> format("Y-m-d")?>" require></label>
                 <?php echo ($idUPD == null)?'<input class="add" type="submit" value="Criar Tarefa">':'<input class="add" type="submit" value="Editar">'?>
