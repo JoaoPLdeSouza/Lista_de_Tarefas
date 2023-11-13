@@ -80,9 +80,9 @@
             <form method="POST" <?php echo ($idUPD == null)?'action="inserir.php"':'action="update.php"'?>>
                 <label>Tarefa: <input type="text" name='tarefa' value ="<?php echo $nt?>" require></label>
                 <label>Status: <select name="status" require></label>
-                    <option value="1" <?php echo ($st == 1)?'selected':' '?>>Iniciada</option>
-                    <option value="2" <?php echo ($st == 2)?'selected':' '?>>Em andamento</option>
-                    <option value="3" <?php echo ($st == 3)?'selected':' '?>>Finalizada</option>
+                    <option value="1" <?php echo ($st == 1)?'selected':' '?>>Aguardando</option>
+                    <option value="2" <?php echo ($st == 2)?'selected':' '?>>Iniciada</option>
+                    <option value="3" <?php echo ($st == 3)?'selected':' '?>>Finalizando</option>
                 </select>
                 <label>Prioridade: <select name="prioridade" require></label>
                     <option value="Baixa"<?php echo ($pr == 'Baixa')?'selected':' '?>>Baixa</option>
@@ -140,7 +140,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA1 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -152,7 +152,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infM1 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -164,7 +164,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infB1 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -180,7 +180,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA2 as $linha) {?>
-                  <li class="post-it-item"><?php echo $linha->nome_tarefa?> | <?php echo $linha->prazo?><a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php echo $linha->nome_tarefa?> | <?php echo $linha->prazo?><a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -192,7 +192,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infM2 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -204,7 +204,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infB2 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -220,7 +220,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA3 as $linha) {?>
-                  <li class="post-it-item"><?php echo $linha->nome_tarefa?> | <?php echo $linha->prazo?><a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php echo $linha->nome_tarefa?> | <?php echo $linha->prazo?><a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
             </ul>
             </div>
@@ -232,7 +232,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infM3 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>
@@ -244,7 +244,7 @@
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infB3 as $linha) {?>
-                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="#"><i class="bi bi-check-circle-fill"></i></a></li>
+                  <li class="post-it-item"><?php print $linha->nome_tarefa?> | <?php print $linha->prazo?>  <a href="Lista.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-pen-fill"></i></a><a href="Excluir.php?id=<?php echo $linha->id_tarefas?>"><i class="bi bi-check-circle-fill"></i></a></li>
                 <?php } ?>
               </ul>
             </div>

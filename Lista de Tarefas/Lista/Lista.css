@@ -105,6 +105,13 @@ header{
     padding: 10px 20px 0px 20px;
 }
 
+.topo form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .topo > i{
     font-size: 40px;
     margin-left: 15px;
@@ -149,6 +156,7 @@ header{
 
 .section-container {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 40px; /* Adicionando um grande espaçamento entre as seções */
 }
 
@@ -171,7 +179,7 @@ header{
     position: relative;
     padding: 10px; /* Adicionando espaçamento interno */
     overflow-y: auto; /* Adicionando scroll vertical apenas */
-    overflow-x: hidden; /* Escondendo o scroll horizontal */
+    overflow-x: auto; /* Escondendo o scroll horizontal */
 }
 
 .titleS {
@@ -221,6 +229,9 @@ header{
     margin-bottom: 5px;
 }
 
+/*.post-it-list > li > a > i{
+    color: red;
+}*/
 
 /* Footer */
 
