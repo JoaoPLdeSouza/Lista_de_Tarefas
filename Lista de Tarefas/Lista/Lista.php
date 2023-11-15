@@ -106,14 +106,14 @@
 
             <ul type="none">
                 <li class="item-menu ativo">
-                    <a href="#">
+                    <a href="http://localhost:83/Lista/Lista.php">
                         <span class="icone"><i class="bi bi-list-task"></i></span>
                         <span class="txt-link">Lista</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="#">
+                    <a href="http://localhost:83/Lista/Grafico.php">
                         <span class="icone"><i class="bi bi-check-circle-fill"></i></span>
                         <span class="txt-link">Concluidas</span>
                     </a>
@@ -136,7 +136,7 @@
         <div class="titleS">AGUARDANDO</div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa Principal</div> 
+            <div class="titleQ">Alta Prioridade</div> 
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA1 as $linha) {?>
@@ -148,7 +148,7 @@
         </div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa secundária</div>
+            <div class="titleQ">Média Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infM1 as $linha) {?>
@@ -160,7 +160,7 @@
         </div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa Terciaria</div>
+            <div class="titleQ">Baixa Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infB1 as $linha) {?>
@@ -176,7 +176,7 @@
         <div class="titleS">INICIADA</div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa Principal</div>
+            <div class="titleQ">Alta Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA2 as $linha) {?>
@@ -188,7 +188,7 @@
         </div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa secundária</div>
+            <div class="titleQ">Média Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infM2 as $linha) {?>
@@ -200,7 +200,7 @@
         </div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa Terciaria</div>
+            <div class="titleQ">Baixa Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infB2 as $linha) {?>
@@ -216,7 +216,7 @@
         <div class="titleS">FINALIZANDO</div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa Principal</div>
+            <div class="titleQ">Alta Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infA3 as $linha) {?>
@@ -228,7 +228,7 @@
         </div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa secundária</div>
+            <div class="titleQ">Média Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infM3 as $linha) {?>
@@ -240,7 +240,7 @@
         </div>
         <div class="square-container">
           <div class="square">
-            <div class="titleQ">Tarefa Terciaria</div>
+            <div class="titleQ">Baixa Prioridade</div>
             <div class="post-it">
               <ul class="post-it-list">
                 <?php foreach($infB3 as $linha) {?>

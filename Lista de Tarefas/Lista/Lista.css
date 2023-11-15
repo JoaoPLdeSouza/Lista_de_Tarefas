@@ -85,7 +85,6 @@ ul li.item-menu a i{
     font-size: 30px;
 }
 
-
 /* Topo */
 
 header{
@@ -103,6 +102,7 @@ header{
     color: white;
     font-size: 25px;
     padding: 10px 20px 0px 20px;
+    overflow-y: auto;
 }
 
 .topo form{
@@ -118,12 +118,12 @@ header{
 }
 
 .topo h3{
-    padding-left: 16%;
+    padding-left: 10%;
 }
 
 .inserir{
     color: white;
-    margin-left: 70px;
+    margin-left: 10%;
 }
 
 .inserir label{
@@ -142,6 +142,7 @@ header{
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
     min-height: 100vh; /* Considerando o espaço do header e footer */
 }
 
@@ -229,9 +230,10 @@ header{
     margin-bottom: 5px;
 }
 
-/*.post-it-list > li > a > i{
-    color: red;
-}*/
+.post-it-item > a{
+    color: purple;
+}
+
 
 /* Footer */
 
