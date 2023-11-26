@@ -106,14 +106,14 @@
 
             <ul type="none">
                 <li class="item-menu ativo">
-                    <a href="http://localhost:83/Lista/Lista.php">
+                    <a href="http://localhost:80/Lista/Lista.php">
                         <span class="icone"><i class="bi bi-list-task"></i></span>
                         <span class="txt-link">Lista</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="http://localhost:83/Lista/Grafico.php">
+                    <a href="http://localhost:80/Lista/Grafico.php">
                         <span class="icone"><i class="bi bi-check-circle-fill"></i></span>
                         <span class="txt-link">Concluidas</span>
                     </a>

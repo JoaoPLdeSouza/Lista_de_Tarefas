@@ -14,6 +14,10 @@
   $SA = $pdo -> prepare("SELECT entrega, COUNT(entrega) AS Qtd FROM tarefas_concluidas WHERE cod_usuariof = '$id' AND cod_statusf = 4");
   $SA -> execute();
   $conc = $SA->fetchAll(PDO::FETCH_OBJ);
+
+  $CA = $pdo -> prepare("SELECT entrega, COUNT(entrega) AS Qtd FROM tarefas_concluidas WHERE cod_usuariof = '$id' AND cod_statusf = 5");
+  $CA -> execute();
+  $concAtras = $CA->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +43,14 @@
 
             <ul type="none">
                 <li class="item-menu">
-                    <a href="http://localhost:83/Lista/Lista.php">
+                    <a href="http://localhost:80/Lista/Lista.php">
                         <span class="icone"><i class="bi bi-list-task"></i></span>
                         <span class="txt-link">Lista</span>
                     </a>
                 </li>
 
                 <li class="item-menu ativo">
-                    <a href="http://localhost:83/Lista/Grafico.php">
+                    <a href="http://localhost:80/Lista/Grafico.php">
                         <span class="icone"><i class="bi bi-check-circle-fill"></i></span>
                         <span class="txt-link">Concluidas</span>
                     </a>
@@ -71,9 +75,13 @@
             google.charts.setOnLoadCallback(drawChart);
             function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ["Element", "Quantidade", { role: "style" } ],
+                ["Grafico", "Conclusão", { role: "style" } ],
                 <?php foreach($conc as $coluna) {?>
-                [<?php print strtotime($coluna->entrega)?>, <?php print $coluna->Qtd?>, "#b87333"],
+                ['Concluido sem atraso', <?php print $coluna->Qtd?>, "#5FE167"],
+                <?php } ?>
+
+                <?php foreach($concAtras as $coluna) {?>
+                ['Atrasado', <?php print $coluna->Qtd?>, "#E03C34"],
                 <?php } ?>
             ]);
 
@@ -86,7 +94,7 @@
                             2]);
 
             var options = {
-                title: "Density of Precious Metals, in g/cm^3",
+                title: "Conclusão de tarefas",
                 width: 600,
                 height: 400,
                 bar: {groupWidth: "95%"},
